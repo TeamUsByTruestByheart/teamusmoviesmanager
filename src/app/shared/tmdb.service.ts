@@ -1,19 +1,35 @@
-import { HeaderDetail } from './../models/header-detail';
+import {
+  PopularMovieModel,
+  PopularMovieAdapter
+} from '../models/popularMovies.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TmdbService {
   private API_KEY = 'b8d25429d24bd53e8efe9922190e3e91';
+  private baseUrl = 'https://api.themoviedb.org/3/';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private popularMovieAdapter: PopularMovieAdapter
+  ) {}
 
-  getTrending() {
-    return this.http.get<HeaderDetail[]>(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${this.API_KEY}`
-    );
+  getTrending(): Observable<PopularMovieModel[]> {
+    const url = `${this.baseUrl}trending/all/day?api_key=${this.API_KEY}`;
+    return this.http
+      .get(url)
+      .pipe(
+        map((data: any[]) =>
+          data['results'].map((item: any) =>
+            this.popularMovieAdapter.adapt(item)
+          )
+        )
+      );
   }
 
   getGenre() {

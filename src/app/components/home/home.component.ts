@@ -1,3 +1,4 @@
+import { PopularMovieModel } from './../../models/popularMovies.model';
 import { TmdbService } from './../../shared/tmdb.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,6 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
-  ngOnInit() {}
+  public list: Array<object> = [];
+  public genre: Array<object> = [];
+  public pageload = true;
+
+  constructor(private api: TmdbService) {}
+
+  ngOnInit() {
+    this.showPopular();
+  }
+
+  showPopular(): void {
+    this.api.getTrending().subscribe((data: Array<object>) => {
+      this.list = data;
+    });
+  }
 }

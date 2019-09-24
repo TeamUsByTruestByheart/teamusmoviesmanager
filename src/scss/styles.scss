@@ -31,6 +31,5 @@ $teamusmoviesmanager-theme: mat-light-theme($teamusmoviesmanager-primary, $teamu
 @import "components/movie-card";
 @import "components/button";
 @import "layout/nav";
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "page/home";
+@import "page/main";
