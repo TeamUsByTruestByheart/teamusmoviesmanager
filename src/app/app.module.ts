@@ -14,6 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ImageSliderComponent } from './app/home/image-slider/image-slider.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     SearchComponent,
     BrowseComponent,
     ContactMeComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,
