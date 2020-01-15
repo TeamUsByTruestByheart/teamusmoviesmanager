@@ -14,7 +14,9 @@ import { SearchComponent } from './components/search/search.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { ImageSliderComponent } from './app/home/image-slider/image-slider.component';
+import { ImageSliderComponent } from './components/home/image-slider/image-slider.component';
+import { TvDetailComponent } from './components/tv-detail/tv-detail.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ImageSliderComponent } from './app/home/image-slider/image-slider.compo
     BrowseComponent,
     ContactMeComponent,
     PagenotfoundComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    TvDetailComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

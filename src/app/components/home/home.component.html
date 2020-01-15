@@ -1,10 +1,8 @@
-
-
-
-<!-- <div class="home-container">
+<app-image-slider *ngIf="pageload === false" [movielist] = "movielist"></app-image-slider>
+<div class="home-container">
   <section class="movie-list">
     <div class="row">
-      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6" *ngFor="let list of list,let i = index">
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6" *ngFor="let list of movielist,let i = index">
         <div class="movie-poster" *ngIf="i <= 20">
           <div class="movie-poster__detail">
             <h3 class="movie-box__title">
@@ -49,4 +47,4 @@
       </div>
     </div>
   </section>
-</div> -->
+</div>

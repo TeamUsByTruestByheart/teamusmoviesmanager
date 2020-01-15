@@ -1,1 +1,34 @@
-<p>image-slider works!</p>
+<div class="slider">
+  <div class="slider-shader">
+    <div class="slider-shader__detail">
+      <a [routerLink]="[currentImage.original_title ? '/movie' : '/tv', currentImage.id]">
+        <ng-template *ngIf="currentImage.original_title;then movie; else series"></ng-template>
+        <ng-template #movie>{{currentImage.original_title}}</ng-template>
+        <ng-template #series>{{currentImage.original_name}}</ng-template>
+      </a>
+      <div class="related">
+        <p class="related-rating">
+          <span>Imdb</span>
+          {{currentImage.vote_average}}
+        </p>
+        <p class="related-release">
+          <span>
+            <ng-template *ngIf="currentImage.first_air_date; then aired; else released"></ng-template>
+            <ng-template #aired>FirstAired: {{currentImage.first_air_date}}</ng-template>
+            <ng-template #released>Release Date: {{currentImage.release_date}}</ng-template>
+          </span>
+        </p>
+      </div>
+
+      <p>{{currentImage.overview}}</p>
+    </div>
+  </div>
+  <div class="slider-image">
+    <img src="https://image.tmdb.org/t/p/w500/{{currentImage.poster_path}}" />
+  </div>
+  <div class="slider-dots">
+    <ng-container *ngFor="let dot of imageArray,  let i = index">
+      <div [className]="initial === i ? 'active' : 'dot'" (click)="gotoMovie(i)"></div>
+    </ng-container>
+  </div>
+</div>

@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public list: Array<object> = [];
+  public movielist: Array<object> = [];
   public genre: Array<object> = [];
   public pageload = true;
 
-  constructor(private api: TmdbService) {}
+  constructor(private api: TmdbService) { }
 
   ngOnInit() {
     this.showPopular();
@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
 
   showPopular(): void {
     this.api.getTrending().subscribe((data: Array<object>) => {
-      this.list = data;
+      this.movielist = data;
+      this.pageload = false;
     });
   }
 }

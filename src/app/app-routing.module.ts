@@ -1,3 +1,5 @@
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { TvDetailComponent } from './components/tv-detail/tv-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +12,8 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'tv/:id', component: TvDetailComponent},
+  { path: 'movie/:id', component: MovieDetailComponent},
   { path: 'home', component: HomeComponent },
   { path: 'browse', component: BrowseComponent },
   { path: 'contact', component: ContactMeComponent },

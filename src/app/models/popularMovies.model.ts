@@ -23,7 +23,8 @@ export class PopularMovieModel {
     // tslint:disable-next-line: variable-name
     public original_name: string,
     // tslint:disable-next-line: variable-name
-    public first_air_date: string
+    public first_air_date: string,
+    public overview: string,
   ) {}
 }
 @Injectable({ providedIn: 'root' })
@@ -41,7 +42,8 @@ export class PopularMovieAdapter implements PopMovie<PopularMovieModel> {
       movie.vote_average,
       movie.vote_count,
       movie.original_name,
-      movie.first_air_date
+      movie.first_air_date,
+      movie.overview
     );
   }
 }
