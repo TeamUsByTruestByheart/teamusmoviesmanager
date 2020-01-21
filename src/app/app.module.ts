@@ -17,6 +17,9 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { ImageSliderComponent } from './components/home/image-slider/image-slider.component';
 import { TvDetailComponent } from './components/tv-detail/tv-detail.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { MovieCardComponent } from './components/reusable/movie-card/movie-card.component';
+import { PaginationControlsComponent } from './components/reusable/pagination-controls/pagination-controls.component';
+import { TmAniDefaultComponent } from './components/reusable/animation/tm-ani-default/tm-ani-default.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     PagenotfoundComponent,
     ImageSliderComponent,
     TvDetailComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MovieCardComponent,
+    PaginationControlsComponent,
+    TmAniDefaultComponent
   ],
   imports: [
     BrowserModule,

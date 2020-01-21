@@ -1,0 +1,10 @@
+<div class="pagination">
+  <div class="pagination-list">
+    <div class="pagination-list__items">
+      <ng-container *ngFor="let page of pageNumber, let i = index">
+        <a [ngClass]="i === currentPage ? ['page-number', 'page-active'] : ['page-number']" (click)="moveToPage(page)">{{page}}</a>
+      </ng-container>
+    </div>
+  </div>
+  <div class="pagination-page"></div>
+</div>

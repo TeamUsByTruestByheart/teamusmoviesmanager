@@ -1,0 +1,41 @@
+@mixin pagination {
+  height: 40px;
+  width: 60px;
+  background-color: transparent;
+  border: 1px solid $primary-white;
+  border-radius: 6px;
+  font-size: 1.4em;
+  padding: 5px 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin page-box-color {
+  border:1px solid $pagination-yellow;
+  color: $pagination-yellow !important;
+}
+
+.pagination {
+  &-list {
+    width: 100%;
+
+    &__items {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+.page-number {
+  margin-left: 1%;
+  @include pagination;
+  &:active {
+    background-color: #22313f8e;
+  }
+  &:hover {
+    @include page-box-color;
+  }
+}
+
+.page-active {
+  @include page-box-color;
+}

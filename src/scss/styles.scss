@@ -26,11 +26,14 @@ $teamusmoviesmanager-theme: mat-light-theme($teamusmoviesmanager-primary, $teamu
 // that you are using.
 @include angular-material-theme($teamusmoviesmanager-theme);
 @import "abstract/variable";
+@import "abstract/mixins";
 @import "base/reset";
 @import "base/typograpy";
 @import "components/movie-card";
 @import "components/button";
 @import "components/image-slider";
+@import "components/utilities";
+@import "components/pagination";
 @import "layout/nav";
 @import "page/home";
 @import "page/main";

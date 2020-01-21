@@ -11,17 +11,25 @@ export class HomeComponent implements OnInit {
   public movielist: Array<object> = [];
   public genre: Array<object> = [];
   public pageload = true;
+  single: object;
+  page = 1;
 
   constructor(private api: TmdbService) { }
 
   ngOnInit() {
-    this.showPopular();
+    this.showPopular(1);
   }
 
-  showPopular(): void {
-    this.api.getTrending().subscribe((data: Array<object>) => {
+  showPopular(page: number): void {
+    this.api.getTrending(page).subscribe((data: Array<object>) => {
       this.movielist = data;
       this.pageload = false;
+      this.single = this.movielist[0];
     });
+  }
+
+  pageChanged(page) {
+    this.pageload = true;
+    this.showPopular(page);
   }
 }

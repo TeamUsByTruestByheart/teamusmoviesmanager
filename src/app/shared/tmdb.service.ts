@@ -19,8 +19,8 @@ export class TmdbService {
     private popularMovieAdapter: PopularMovieAdapter
   ) {}
 
-  getTrending(): Observable<PopularMovieModel[]> {
-    const url = `${this.baseUrl}trending/all/day?api_key=${this.API_KEY}`;
+  getTrending(page: number): Observable<PopularMovieModel[]> {
+    const url = `${this.baseUrl}trending/all/day?api_key=${this.API_KEY}&page=${page}`;
     return this.http
       .get(url)
       .pipe(
