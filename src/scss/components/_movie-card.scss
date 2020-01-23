@@ -55,3 +55,11 @@
     }
   }
 }
+
+.ghost-movie-poster:empty {
+  @include skeleton-color;
+  border-radius: 0.4em;
+  width: 225px;
+  height: 300px;
+  @include apply-skeleton-animation;
+}

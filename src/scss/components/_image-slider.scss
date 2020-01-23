@@ -96,3 +96,8 @@
     }
   }
 }
+
+.ghost-slider:empty {
+  @include apply-skeleton-animation;
+  @include skeleton-color;
+}

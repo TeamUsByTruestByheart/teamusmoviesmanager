@@ -1,4 +1,4 @@
-<div class="movie-poster">
+<div class="movie-poster" [@fadeIn]= "movieDetails">
   <div class="movie-poster__detail">
     <h3 class="movie-box__title">
       <ng-template *ngIf="movieDetails['original_title']; then movie; else series">

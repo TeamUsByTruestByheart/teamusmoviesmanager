@@ -25,6 +25,7 @@ $teamusmoviesmanager-theme: mat-light-theme($teamusmoviesmanager-primary, $teamu
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($teamusmoviesmanager-theme);
+@import "abstract/animation";
 @import "abstract/variable";
 @import "abstract/mixins";
 @import "base/reset";

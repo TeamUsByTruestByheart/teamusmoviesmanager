@@ -20,6 +20,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { MovieCardComponent } from './components/reusable/movie-card/movie-card.component';
 import { PaginationControlsComponent } from './components/reusable/pagination-controls/pagination-controls.component';
 import { TmAniDefaultComponent } from './components/reusable/animation/tm-ani-default/tm-ani-default.component';
+import { GhostHomeComponent } from './components/reusable/skeleton/ghost-home/ghost-home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TmAniDefaultComponent } from './components/reusable/animation/tm-ani-de
     MovieDetailComponent,
     MovieCardComponent,
     PaginationControlsComponent,
-    TmAniDefaultComponent
+    TmAniDefaultComponent,
+    GhostHomeComponent
   ],
   imports: [
     BrowserModule,

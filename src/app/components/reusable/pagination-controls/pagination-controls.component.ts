@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-pagination-controls',
+  selector: 'Pagination-controls',
   templateUrl: './pagination-controls.component.html',
   styleUrls: ['./pagination-controls.component.scss']
 })
@@ -34,9 +34,9 @@ export class PaginationControlsComponent implements OnInit {
 
   moveToPreviousPage(index: number) {
     let page: any;
-    page = this.pageNumber[index] - 1;
+    page = Number(this.pageNumber[index]) - 1;
     const moveToPrev = index - 1;
-    this.firstPageNumber = this.pageNumber[1] - 14;
+    this.firstPageNumber = Number(this.pageNumber[1]) - 14;
     if (moveToPrev > 0) {
       this.currentPage = moveToPrev;
       this.pageChange.emit(page);
@@ -50,7 +50,7 @@ export class PaginationControlsComponent implements OnInit {
 
   moveToNextPage(index: number) {
     let page: any;
-    page = this.pageNumber[index] + 1;
+    page = Number(this.pageNumber[index]) + 1;
     const moveToNext = index + 1;
     this.lastPageNumber = this.pageNumber[13];
     if (moveToNext <= 13) {

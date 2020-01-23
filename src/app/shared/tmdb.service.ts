@@ -5,8 +5,9 @@ import {
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
+const RESPONSE_DELAY = 1750;
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +25,9 @@ export class TmdbService {
     return this.http
       .get(url)
       .pipe(
+        delay(RESPONSE_DELAY),
         map((data: any[]) =>
+          // tslint:disable-next-line: no-string-literal
           data['results'].map((item: any) =>
             this.popularMovieAdapter.adapt(item)
           )
@@ -62,7 +65,7 @@ export class TmdbService {
     );
   }
 
-  searchMe(term: String) {
+  searchMe(term: string) {
     // tslint:disable-next-line:max-line-length
     return this.http.get(
       `https://api.themoviedb.org/3/search/multi?API_KEY=${this.API_KEY}&language=en-US&query=${term}&page=1&include_adult=true`
@@ -75,7 +78,7 @@ export class TmdbService {
     );
   }
 
-  getTvCredits(id: Number) {
+  getTvCredits(id: number) {
     return this.http.get(
       `https://api.themoviedb.org/3/tv/${id}/credits?API_KEY=${this.API_KEY}&language=en-US`
     );

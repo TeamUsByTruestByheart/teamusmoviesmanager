@@ -1,10 +1,10 @@
-<app-image-slider *ngIf="pageload === false" [movielist]="movielist"></app-image-slider>
 <section class="movie-trending">
-  <h3 class="movie-trending__title">Trending</h3>
-  <div class="container">
-    <div class="center-element mt-5 mb-5" *ngIf="pageload === true">
-      <app-tm-ani-default></app-tm-ani-default>
-    </div>
+  <div *ngIf="pageload === true">
+    <Ghost-home [ghosts] ="ghosts"></Ghost-home>
+  </div>
+  <app-image-slider *ngIf="pageload === false" [movielist]="movielist"></app-image-slider>
+  <div class="container"  *ngIf="pageload === false">
+    <h3 class="movie-trending__title">Trending</h3>
     <ng-container *ngIf="pageload === false">
       <div class="row">
         <div class="movie-list col-3" *ngFor="
@@ -14,8 +14,8 @@
         </div>
       </div>
     </ng-container>
-    <div class="center-element">
-      <app-pagination-controls (pageChange)="pageChanged($event)"></app-pagination-controls>
-    </div>
+  </div>
+  <div class="center-element mt-5 mb-5">
+    <Pagination-controls (pageChange)="pageChanged($event)"></Pagination-controls>
   </div>
 </section>
