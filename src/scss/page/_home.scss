@@ -1,0 +1,12 @@
+.movie{
+  &-trending{
+    width: 100vw;
+    color: $primary-white;
+
+    &__title{
+      margin: 4% 0 0 0;
+      text-transform: uppercase;
+      border-bottom: 2px solid $primary-white;
+    }
+  }
+}

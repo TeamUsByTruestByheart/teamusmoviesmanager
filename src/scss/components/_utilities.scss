@@ -1,0 +1,7 @@
+.center-items{
+  text-align: center;
+  margin: 2% 0 0 0;
+}
+.center-element{
+  @include center-flex;
+}

@@ -1,0 +1,36 @@
+<div class="movie-poster" [@fadeIn]= "movieDetails">
+  <div class="movie-poster__detail">
+    <h3 class="movie-box__title">
+      <ng-template *ngIf="movieDetails['original_title']; then movie; else series">
+      </ng-template>
+
+      <ng-template #movie>{{ movieDetails["original_title"] }}</ng-template>
+      <ng-template #series>{{ movieDetails["original_name"] }}</ng-template>
+    </h3>
+    <ul class="movie-box__info">
+      <ng-template *ngIf="movieDetails.release_date; then moviedate; else seriesdate">
+      </ng-template>
+
+      <ng-template #moviedate>
+        <li>
+          <p>Release Date:{{ movieDetails.release_date }}</p>
+        </li>
+        <li>
+          <a class="btn btn-white-view" [routerLink]="['/movie', movieDetails['id']]">view</a>
+        </li>
+      </ng-template>
+      <ng-template #seriesdate>
+        <li>
+          <p>First Aired on:{{ movieDetails.first_air_date }}</p>
+        </li>
+        <li>
+          <a class="btn btn-white-view" [routerLink]="['/tv', movieDetails['id']]">view</a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+  <div class="movie-poster__image">
+    <img src="https://image.tmdb.org/t/p/w400/{{ movieDetails.poster_path }}" alt="{{ movieDetails.original_title }}"
+      class="movie-box__img" />
+  </div>
+</div>

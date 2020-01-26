@@ -1,63 +1,65 @@
-.movie-poster {
-  width: 100%;
-  position: relative;
-  margin: 4% 0 0 1%;
-  &__image {
-    width: 100%;
-    z-index: 100;
-  }
-
-  &__detail {
-    width: 100%;
-    font-size: 0.6em;
-    height: 100%;
-    position: absolute;
-    z-index: 300;
-    opacity: 0;
-    border-radius: 8px;
-    text-align: center;
-    color: $primary-color;
-
-    &:hover {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.884));
-      opacity: 1;
+.movie {
+  &-box {
+    &__img {
+      width: 100%;
+      border-radius: 8px;
     }
-  }
-}
 
-.movie-box {
-  &__img {
-    width: 100%;
-    border-radius: 8px;
-  }
-
-  &__info {
-    list-style: none;
-    margin-top: 4%;
-    margin-left: -20%;
+    &__info {
+      list-style: none;
+      margin: 4% 0 0 -20%;
+    }
 
     & li {
       display: block;
-
       & p {
-        font-size: 1.2em;
+        font-size: 0.6em;
       }
       &:last-child {
         margin-top: 6%;
       }
+
+      &__title {
+        width: 90%;
+        margin: 6% 0 0 2%;
+        font-size: 0.4em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
-  &__title {
-    width: 90%;
-    margin: 6%;
-    font-size: 1.8em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  &-poster {
+    position: relative;
+    width: 100%;
+    margin: 4% 0 2% 2%;
+    &__detail {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      position: absolute;
+      opacity: 0;
+      z-index: 100;
+      transition: all 0.4s;
+      color: $primary-white;
+      text-align: center;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.651);
+        opacity: 1;
+      }
+    }
+    &__image {
+      width: 100%;
+      border-radius: 0.4em;
+    }
   }
 }
 
-@media screen and (min-width: 764px) {
-  .movie-poster {
-  }
+.ghost-movie-poster:empty {
+  @include skeleton-color;
+  border-radius: 0.4em;
+  width: 225px;
+  height: 300px;
+  @include apply-skeleton-animation;
 }

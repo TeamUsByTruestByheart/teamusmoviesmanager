@@ -1,19 +1,38 @@
-import { HeaderDetail } from './../models/header-detail';
+import {
+  PopularMovieModel,
+  PopularMovieAdapter
+} from '../models/popularMovies.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
 
+const RESPONSE_DELAY = 1750;
 @Injectable({
   providedIn: 'root'
 })
 export class TmdbService {
   private API_KEY = 'b8d25429d24bd53e8efe9922190e3e91';
+  private baseUrl = 'https://api.themoviedb.org/3/';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private popularMovieAdapter: PopularMovieAdapter
+  ) {}
 
-  getTrending() {
-    return this.http.get<HeaderDetail[]>(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${this.API_KEY}`
-    );
+  getTrending(page: number): Observable<PopularMovieModel[]> {
+    const url = `${this.baseUrl}trending/all/day?api_key=${this.API_KEY}&page=${page}`;
+    return this.http
+      .get(url)
+      .pipe(
+        delay(RESPONSE_DELAY),
+        map((data: any[]) =>
+          // tslint:disable-next-line: no-string-literal
+        data['results'].map((item: any) =>
+            this.popularMovieAdapter.adapt(item)
+          )
+        )
+      );
   }
 
   getGenre() {
@@ -46,7 +65,7 @@ export class TmdbService {
     );
   }
 
-  searchMe(term: String) {
+  searchMe(term: string) {
     // tslint:disable-next-line:max-line-length
     return this.http.get(
       `https://api.themoviedb.org/3/search/multi?API_KEY=${this.API_KEY}&language=en-US&query=${term}&page=1&include_adult=true`
@@ -59,7 +78,7 @@ export class TmdbService {
     );
   }
 
-  getTvCredits(id: Number) {
+  getTvCredits(id: number) {
     return this.http.get(
       `https://api.themoviedb.org/3/tv/${id}/credits?API_KEY=${this.API_KEY}&language=en-US`
     );

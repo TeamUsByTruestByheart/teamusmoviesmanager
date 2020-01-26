@@ -1,4 +1,3 @@
-import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +13,13 @@ import { SearchComponent } from './components/search/search.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ImageSliderComponent } from './components/home/image-slider/image-slider.component';
+import { TvDetailComponent } from './components/tv-detail/tv-detail.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { MovieCardComponent } from './components/reusable/movie-card/movie-card.component';
+import { PaginationControlsComponent } from './components/reusable/pagination-controls/pagination-controls.component';
+import { TmAniDefaultComponent } from './components/reusable/animation/tm-ani-default/tm-ani-default.component';
+import { GhostHomeComponent } from './components/reusable/skeleton/ghost-home/ghost-home.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +30,20 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     SearchComponent,
     BrowseComponent,
     ContactMeComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ImageSliderComponent,
+    TvDetailComponent,
+    MovieDetailComponent,
+    MovieCardComponent,
+    PaginationControlsComponent,
+    TmAniDefaultComponent,
+    GhostHomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

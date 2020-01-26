@@ -1,0 +1,21 @@
+<section class="movie-trending">
+  <div *ngIf="pageload === true">
+    <Ghost-home [ghosts] ="ghosts"></Ghost-home>
+  </div>
+  <app-image-slider *ngIf="pageload === false" [movielist]="movielist"></app-image-slider>
+  <div class="container"  *ngIf="pageload === false">
+    <h3 class="movie-trending__title">Trending</h3>
+    <ng-container *ngIf="pageload === false">
+      <div class="row">
+        <div class="movie-list col-3" *ngFor="
+            let list of movielist
+          ">
+          <app-movie-card [movieDetails]="list"></app-movie-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="center-element mt-5 mb-5">
+    <Pagination-controls (pageChange)="pageChanged($event)"></Pagination-controls>
+  </div>
+</section>

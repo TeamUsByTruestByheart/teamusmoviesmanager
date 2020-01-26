@@ -1,0 +1,103 @@
+.slider {
+  position: relative;
+  width: 100vw;
+  height: 55vh;
+
+  &-shader {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    height: 55vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 80;
+    &__detail {
+      margin: 15% 0 0 2%;
+      width: 35%;
+      height: 200px;
+      color: $primary-white;
+      font-size: 1em;
+      & a,
+      a:active,
+      a:visited {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $primary-white;
+        font-size: 1.3em;
+        cursor: pointer;
+      }
+      & p {
+        text-align: justify;
+      }
+    }
+  }
+
+  &-image {
+    position: absolute;
+    width: 100%;
+    & img {
+      width: 100%;
+      height: 55vh;
+      object-fit: cover;
+    }
+  }
+
+  &-dots {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 85%;
+    z-index: 100;
+    & .dot {
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 50%;
+      background-color: $primary-white-transparent;
+      margin-left: 1%;
+      cursor: pointer;
+    }
+  }
+}
+
+.left-arrow,
+.right-arrow {
+  color: $primary-white;
+  font-size: 4em;
+}
+
+.active {
+  background-color: $primary-white !important;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.related {
+  display: flex;
+  justify-content: space-between;
+  &-rating {
+    position: relative;
+    font-weight: 300;
+    font-size: 1.2em;
+    & span {
+      background-color: white;
+      border-radius: 2px;
+      color: black;
+      font-weight: bold;
+      margin: 0 auto;
+      padding: 0.2em;
+      width: 20%;
+      text-align: center;
+      mix-blend-mode: screen;
+    }
+  }
+}
+
+.ghost-slider:empty {
+  @include apply-skeleton-animation;
+  @include skeleton-color;
+}

@@ -1,0 +1,33 @@
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  top: 50%;
+}
+@mixin center-element{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin skeleton-color {
+  background: #dedfe1;
+  background-image: -webkit-linear-gradient(
+    to right,
+    #dedfe1 0%,
+    #f2f3f5 20%,
+    #dedfe1 40%,
+    #dedfe1 100%
+  );
+  background-image: linear-gradient(
+    to right,
+    #dedfe1 0%,
+    #f2f3f5 20%,
+    #dedfe1 40%,
+    #dedfe1 100%
+  );
+  background-repeat: no-repeat;
+}
+
+@mixin apply-skeleton-animation {
+  animation: loading 1.7s infinite linear;
+}

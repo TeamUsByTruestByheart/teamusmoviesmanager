@@ -1,0 +1,75 @@
+@mixin pagination {
+  height: 40px;
+  width: 60px;
+  background-color: transparent;
+  border: 1px solid $primary-white;
+  border-radius: 6px;
+  font-size: 1.4em;
+  padding: 5px 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin page-box-color {
+  border: 1px solid $pagination-yellow;
+  color: $pagination-yellow !important;
+}
+
+.pagination-control {
+  border-top: 2px solid $primary-white;
+  &__list {
+    margin-top: 2%;
+    width: 100%;
+
+    &-items {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+.page-number {
+  margin-left: 1%;
+  @include pagination;
+  &:active {
+    background-color: #22313f8e;
+  }
+  &:hover {
+    @include page-box-color;
+  }
+}
+
+.page-active {
+  @include page-box-color;
+}
+
+.page {
+  margin-top: 2%;
+  &-line {
+    position: relative;
+    width: 100%;
+    & hr {
+      position: absolute;
+      margin-top: 1%;
+      width: 100%;
+      z-index: 0;
+      border-top: 2px solid $primary-white;
+    }
+
+    &__digit {
+      position: absolute;
+      background-color: $primary-white;
+      color: $primary-dark;
+      height: 20px;
+      width: 200px;
+      border-radius: 30px;
+      border: 2px solid $primary-white;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      & P{
+        margin-top: -1%;
+      }
+    }
+  }
+}
