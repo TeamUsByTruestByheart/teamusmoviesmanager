@@ -1,10 +1,20 @@
-<div class="pagination">
-  <div class="pagination-list">
-    <div class="pagination-list__items">
+<div class="pagination-control">
+  <div class="pagination-control__list">
+    <div class="pagination-control__list-items">
       <ng-container *ngFor="let page of pageNumber, let i = index">
-        <a [ngClass]="i === currentPage ? ['page-number', 'page-active'] : ['page-number']" (click)="moveToPage(page)">{{page}}</a>
+        <a [ngClass]="i === currentPage ? ['page-number', 'page-active'] : ['page-number']"
+          (click)="moveToPage(page)">{{page}}</a>
       </ng-container>
     </div>
   </div>
-  <div class="pagination-page"></div>
+  <div class="pagination-control__page">
+    <div class="page">
+      <div class="page-line">
+        <div class="page-line__digit">
+          <p>Page {{currentPage}} of 1000</p>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
 </div>

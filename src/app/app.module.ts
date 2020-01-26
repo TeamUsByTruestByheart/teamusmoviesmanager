@@ -1,4 +1,3 @@
-import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -45,7 +44,6 @@ import { GhostHomeComponent } from './components/reusable/skeleton/ghost-home/gh
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

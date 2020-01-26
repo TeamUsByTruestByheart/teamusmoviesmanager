@@ -28,7 +28,7 @@ export class TmdbService {
         delay(RESPONSE_DELAY),
         map((data: any[]) =>
           // tslint:disable-next-line: no-string-literal
-          data['results'].map((item: any) =>
+        data['results'].map((item: any) =>
             this.popularMovieAdapter.adapt(item)
           )
         )

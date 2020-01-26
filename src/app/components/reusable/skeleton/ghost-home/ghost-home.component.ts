@@ -10,7 +10,6 @@ export class GhostHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.ghosts);
   }
 
 }

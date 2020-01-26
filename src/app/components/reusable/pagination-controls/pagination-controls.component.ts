@@ -11,6 +11,7 @@ export class PaginationControlsComponent implements OnInit {
   public pageNumber = ['<', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, '>'];
   public lastPageNumber: any;
   public firstPageNumber: any = 1;
+  public pageInput: number;
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
 
 

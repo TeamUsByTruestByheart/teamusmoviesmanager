@@ -11,15 +11,17 @@
 }
 
 @mixin page-box-color {
-  border:1px solid $pagination-yellow;
+  border: 1px solid $pagination-yellow;
   color: $pagination-yellow !important;
 }
 
-.pagination {
-  &-list {
+.pagination-control {
+  border-top: 2px solid $primary-white;
+  &__list {
+    margin-top: 2%;
     width: 100%;
 
-    &__items {
+    &-items {
       display: flex;
       justify-content: center;
     }
@@ -38,4 +40,36 @@
 
 .page-active {
   @include page-box-color;
+}
+
+.page {
+  margin-top: 2%;
+  &-line {
+    position: relative;
+    width: 100%;
+    & hr {
+      position: absolute;
+      margin-top: 1%;
+      width: 100%;
+      z-index: 0;
+      border-top: 2px solid $primary-white;
+    }
+
+    &__digit {
+      position: absolute;
+      background-color: $primary-white;
+      color: $primary-dark;
+      height: 20px;
+      width: 200px;
+      border-radius: 30px;
+      border: 2px solid $primary-white;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      & P{
+        margin-top: -1%;
+      }
+    }
+  }
 }

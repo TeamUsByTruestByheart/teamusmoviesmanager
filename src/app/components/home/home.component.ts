@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   public movielist: Array<object>;
   public genre: Array<object> = [];
   public pageload = true;
-  single$: Observable<any[]>;
   page = 1;
   ghosts: any[];
 
